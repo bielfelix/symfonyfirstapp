@@ -49,4 +49,39 @@ class CategoriaController extends AbstractController
 
         return $this->renderForm('categoria/form.html.twig', $data);
     }
+
+    /**
+     * @Route("/categoria/editar/{id}", name="categoria_editar")
+     */
+    public function editar($id, Request $request, EntityManagerInterface $em, CategoriaRepository $categoriaRepository) : Response
+    {
+        $msg = '';
+        $categoria = $categoriaRepository->find($id); //retorna a categoria pelo id
+        $form = $this->createForm(CategoriaType::class, $categoria);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush(); //fazer o update da categooria no bd
+            $msg = 'Categoria atualizada com sucesso!';
+        }
+
+        $data['titulo'] = 'Editar Categoria';
+        $data['form'] = $form;
+        $data['msg'] = $msg;
+
+        return $this->renderForm('categoria/form.html.twig', $data);
+    }
+
+    /**
+     * @Route("/categoria/excluir/{id}", name="categoria_excluir")
+     */
+    public function excluir($id, EntityManagerInterface $em, CategoriaRepository $categoriaRepository) : Response
+    {
+        $categoria = $categoriaRepository->find($id);
+        $em->remove($categoria); //excluir a categoria do bd (memoria)
+        $em->flush(); //efetuar a exclusão
+
+        //redirecionar a app para categoria_index
+        return $this->redirectToRoute('categoria_index');
+    }
 }
