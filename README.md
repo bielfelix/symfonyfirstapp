@@ -7,9 +7,10 @@ Esse projeto tem o objetivo de explorar as ferramentas que o framework tem a ofe
 - Symfony 5.4.x
 - MySQL
 
-## Rotas
-- /categoria
-- /produto
+## Paginas
+- categoria (Cadastrar/Editar/Excluir)
+- produto (Cadastrar/Editar/Excluir)
+- usuário (Cadastro/Login0
 
 ## Módulos Utilizados
 - Doctrine
@@ -22,4 +23,5 @@ Esse projeto tem o objetivo de explorar as ferramentas que o framework tem a ofe
 - Bootstrap
 - Validação de dados utilizando o Annotations
 - Rotas pelo Annotations
+- Autenticação/Autorização/Controle de Acesso
 
