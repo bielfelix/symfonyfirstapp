@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Categoria;
 use App\Form\CategoriaType;
+use App\Repository\CategoriaRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 // use App\Controller\Exception;
@@ -15,32 +17,35 @@ class CategoriaController extends AbstractController
     /**
      * @Route("/categoria", name="categoria_index")
      */
-    public function index(EntityManagerInterface $em) : Response
+    public function index(CategoriaRepository $categoriaRepository) : Response
     {
-        //$em é um obj que vai auxiliar a execução de ações no BD
-        $categoria = new Categoria();
-        $categoria->setDescricaocategoria("Informática");
-        $msg = "";
+        //buscar todas as categorias
+        $data['categorias'] = $categoriaRepository->findAll();
+        $data['titulo'] = 'Gerenciar Categorias';
 
-        try{
-            $em->persist($categoria); //salvar em nivel de memoria
-            $em->flush(); //executa no BD
-            $msg = "Categoria salva com sucesso";
-        }
-        catch(\Exception $e){
-            $msg = "Error ao cadastrar categoria";
-        }
-        return new Response("<h1>".$msg."</h1>");
+        return $this->render('categoria/index.html.twig', $data);
     }
 
     /**
      * @Route("/categoria/adicionar", name="categoria_adicionar")
      */
-    public function adicionar() : Response
+    public function adicionar(Request $request, EntityManagerInterface $em) : Response
     {
-        $form = $this->createForm(CategoriaType::class);
+        $msg = '';
+        $categoria = new Categoria();
+        $form = $this->createForm(CategoriaType::class, $categoria);
+        $form->handleRequest($request); //associar a entidade
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            //salvar a categoria no bd
+            $em->persist($categoria); //salva na memoria
+            $em->flush(); //salva no bd
+            $msg = 'Categoria salva com sucesso!';
+        }
+
         $data['titulo'] = 'Adicionar Nova Categoria';
         $data['form'] = $form;
+        $data['msg'] = $msg;
 
         return $this->renderForm('categoria/form.html.twig', $data);
     }
