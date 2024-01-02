@@ -7,10 +7,10 @@ Esse projeto tem o objetivo de explorar as ferramentas que o framework tem a ofe
 - Symfony 5.4.x
 - MySQL
 
-## Paginas
-- categoria (Cadastrar/Editar/Excluir)
-- produto (Cadastrar/Editar/Excluir)
-- usuário (Cadastro/Login0
+## Páginas
+- categoria (Listagem/Cadastrar/Editar/Excluir)
+- produto (Listagem/Cadastrar/Editar/Excluir)
+- usuário (Cadastrar/Login)
 
 ## Módulos Utilizados
 - Doctrine
