@@ -12,7 +12,7 @@ class CategoriaType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("descricaocategoria", TextType::class, ['label' => 'Descrição da categoria: '])
+            ->add("descricaocategoria", TextType::class, ['label' => 'Descrição da Categoria: '])
             ->add('Salvar', SubmitType::class);
     }
 }

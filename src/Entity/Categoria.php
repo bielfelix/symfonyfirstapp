@@ -6,6 +6,7 @@ use App\Repository\CategoriaRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CategoriaRepository::class)
@@ -21,6 +22,13 @@ class Categoria
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 50,
+     *      minMessage = "O campo Descrição da Categoria deve conter no minímo {{ limit }} caracteres",
+     *      maxMessage = "O campo Descrição da Categoria deve conter no maxímo {{ limit }} caracteres"
+     * )
      */
     private $descricaocategoria;
 
