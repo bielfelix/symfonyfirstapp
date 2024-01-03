@@ -21,6 +21,14 @@ class ProdutoRepository extends ServiceEntityRepository
         parent::__construct($registry, Produto::class);
     }
 
+    public function findProdutoByLikeNome($nomeproduto){
+        return $this->createQueryBuilder("p")
+            ->where("p.nomeproduto LIKE :nomeproduto")
+            ->setParameter("nomeproduto", "%$nomeproduto%")
+            ->getQuery()
+            ->getResult();
+    }
+
     public function add(Produto $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
