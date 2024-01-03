@@ -10,18 +10,23 @@ Esse projeto tem o objetivo de explorar as ferramentas que o framework tem a ofe
 ## Páginas
 - categoria (Listagem/Cadastrar/Editar/Excluir)
 - produto (Listagem/Cadastrar/Editar/Excluir)
-- usuário (Cadastrar/Login)
+- usuário (Cadastrar/Login) com nível de acesso
 
 ## Módulos Utilizados
 - Doctrine
 - Annotations
 - Security Bundle
 - Validator
+- IsGranted
 
 ## Recursos Utilizados
 - FormType
 - Bootstrap
 - Validação de dados utilizando o Annotations
-- Rotas pelo Annotations
-- Autenticação/Autorização/Controle de Acesso
+- Rotas pelo Annotations e também pelo arquivo routes.yaml
+- Autenticação/Autorização/Controle de Acesso por Roles
 
+## Autor
+
+**Gabriel Felix**
+LinkedIn: https://www.linkedin.com/in/biel-felix/

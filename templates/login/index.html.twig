@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block body %}
+    <div class='row'>
+        <div class='col-4 offset-4'>
+            <h1>Formulário de Login</h1>
+            {% if erro %}
+                <div>{{ erro.messageKey|trans(erro.messageData, 'security') }}</div>
+            {% endif %}
+            <form action="{{ path('app_login')}}" method='post'>
+                <input type="hidden" name='_target_path' value='/produto'>
+
+                <label for='username' class='form-label'>E-Mail</label>
+                <input type='text' class='form-control' id='username' name='_username' value='{{ lastUsername }}'>
+
+                <label for='password' class='form-label'>Senha</label>
+                <input type='password' class='form-control' id='password' name='_password' >
+
+                <button type='submit' class='btn btn-primary'>Entrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
