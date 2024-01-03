@@ -1,18 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Cadastrar{% endblock %}
 
 {% block body %}
     <h1>Criar nova Conta</h1>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.nome) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+        {{ form_row(registrationForm.nome, {
+            label: 'Nome'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.email, {
+            label: 'E-Mail'
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Senha'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'Aceito os Termos de Uso'
+        }) }}
 
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

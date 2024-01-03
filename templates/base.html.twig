@@ -38,6 +38,9 @@
                         </li>
                     </ul>
                 </div>
+                <div class='col-md-3 text-end'>
+                    <span style='color: white'>E-Mail: {{ app.user.email }}</span>
+                </div>
                 {% else %}
                 <div class='collapse navbar-collapse'>
                     <ul class='navbar-nav'>
@@ -57,10 +60,6 @@
             </div>
         </nav>
         <div class='container'>
-        {% if is_granted('ROLE_USER') %}
-            <span>E-Mail: {{ app.user.email }}</span>
-        {% endif %}
-
         {% block body %}{% endblock %}
         </div>
     </body>

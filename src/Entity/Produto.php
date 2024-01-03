@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProdutoRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ProdutoRepository::class)
@@ -15,6 +16,7 @@ class Produto
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("api_list")
      */
     private $id;
 
@@ -27,6 +29,7 @@ class Produto
      *      minMessage = "O campo Nome do Produto deve conter no minímo {{ limit }} caracteres",
      *      maxMessage = "O campo Nome do Produto deve conter no maxímo {{ limit }} caracteres"
      * )
+     * @Groups("api_list")
      */
     private $nomeproduto;
 
@@ -34,12 +37,14 @@ class Produto
      * @ORM\Column(type="float")
      * @Assert\NotBlank
      * @Assert\Positive(message="O campo Valor deve conter um número positivo")
+     * @Groups("api_list")
      */
     private $valor;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categoria::class, inversedBy="produtos")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("api_list")
      */
     private $categoria;
 

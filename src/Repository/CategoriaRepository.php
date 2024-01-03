@@ -21,6 +21,14 @@ class CategoriaRepository extends ServiceEntityRepository
         parent::__construct($registry, Categoria::class);
     }
 
+    public function findCategoriaByLikeDescricao($descricaocategoria){
+        return $this->createQueryBuilder("c")
+            ->where("c.descricaocategoria LIKE :descricaocategoria")
+            ->setParameter("descricaocategoria", "%$descricaocategoria%")
+            ->getQuery()
+            ->getResult();
+    }
+
     public function add(Categoria $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

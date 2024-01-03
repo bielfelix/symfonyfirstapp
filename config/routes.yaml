@@ -2,6 +2,10 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+index:
+   path: /
+   controller: App\Controller\ProdutoController::index
+
 hello:
    path: /hello
    controller: App\Controller\HelloController::index
