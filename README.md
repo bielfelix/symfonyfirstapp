@@ -1,37 +1,54 @@
-# SymfonyFirstApp
+# Symfony First App
 
-Esse projeto tem o objetivo de explorar as ferramentas que o framework tem a oferecer. Com proposta para fins educativos e de aprendizagem e utilizando as boas práticas e padronizações de desenvolvimento de códigos e diretórios recomendados pela documentação do framework Symfony 5.
+A learning project built with Symfony 5.4 to explore framework conventions, Doctrine, forms, validation, authentication and authorization.
 
-## Requisitos
-- PHP 7.4.x
-- Symfony 5.4.x
+I keep this repository public as part of my PHP framework progression.
+
+## Stack
+
+- PHP
+- Symfony 5.4
+- Doctrine ORM
 - MySQL
-
-## Páginas
-- Categoria (Listagem/Cadastrar/Editar/Excluir)
-- Produto (Listagem/Cadastrar/Editar/Excluir)
-- Usuário (Cadastrar/Login) com nível de acesso
-
-## Módulos Utilizados
-- Doctrine
-- QueryBuilder
-- Annotations
-- Security Bundle
-- Validator
-- IsGranted
-
-## Recursos Utilizados
-- FormType
+- Twig
 - Bootstrap
-- Validação de dados utilizando o Annotations
-- Rotas pelo Annotations e também pelo arquivo routes.yaml
-- Autenticação/Autorização/Controle de Acesso por Roles
 
-## API
-- Exemplo de consumo de API que retorna uma listagem completa dos Produtos cadastrados (Juntamente com os dados do relacionamento entre Produto e Categoria) em formato de Json
-- Rota para consumir a API: /api/produtos
+## Main features
 
+- Category CRUD
+- Product CRUD
+- User registration
+- Login
+- Role-based access control
+- Form validation
+- Doctrine relationships and queries
+- JSON product API
 
-## Autor
-- **Gabriel Felix**
-- LinkedIn: https://www.linkedin.com/in/biel-felix/
+## API example
+
+```text
+GET /api/produtos
+```
+
+The endpoint returns products together with their category relationship as JSON.
+
+## Concepts explored
+
+- Symfony Forms
+- Doctrine and QueryBuilder
+- Validation
+- Security Bundle
+- Authorization with roles
+- Route annotations and YAML routes
+- Controller and entity organization
+
+## Historical context
+
+This repository is intentionally presented as a learning project. It documents my hands-on exploration of Symfony rather than a production reference architecture.
+
+## Author
+
+Gabriel Felix
+
+LinkedIn:
+https://www.linkedin.com/in/biel-felix/
