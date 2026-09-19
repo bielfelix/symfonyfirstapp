@@ -1,6 +1,6 @@
 # Symfony First App
 
-A learning project built with Symfony 5.4 to explore framework conventions, Doctrine, forms, validation, authentication and authorization.
+A historical Symfony 5.4 implementation covering framework conventions, Doctrine, forms, validation, authentication and authorization.
 
 I keep this repository public as part of my PHP framework progression.
 
@@ -44,7 +44,7 @@ The endpoint returns products together with their category relationship as JSON.
 
 ## Historical context
 
-This repository is intentionally presented as a learning project. It documents my hands-on exploration of Symfony rather than a production reference architecture.
+This repository is intentionally presented as a historical framework implementation. It documents hands-on Symfony work and does not represent my current production architecture standards.
 
 ## Author
 
